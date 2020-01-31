@@ -1,0 +1,163 @@
+QUESTION 1:
+ARRANGE THE SCHEDULES OF BASSBAL MATCH IN ASSENDING ORDER ?
+
+SELECT * FROM `bigquery-public-data.baseball.schedules`
+ORDER BY attendance ASC
+
+RESULTS:
+Row	gameId	gameNumber	seasonId	year	type	dayNight	duration	duration_minutes	homeTeamId	homeTeamName	awayTeamId	awayTeamName	startTime	attendance	status	created	
+1	fbe41a8f-c36f-46f4-9775-3d454cba0491	1	565de4be-dc80-4849-a7e1-54bc79156cc8	2016	REG	D		0	03556285-bdbb-4576-a06d-42f71f46ddc5	Marlins	12079497-e414-450a-8bf2-29f91de646bf	Braves	2016-09-25 17:10:00 UTC	0	canceled	2016-10-06 06:25:15 UTC	
+2	c7101abc-c787-4c26-b78b-684ad196cc58	1	565de4be-dc80-4849-a7e1-54bc79156cc8	2016	REG	D		0	575c19b7-4052-41c2-9f0a-1c5813d02f99	Tigers	80715d0d-0d2a-450f-a970-1b9a3b18c7e7	Indians	2016-10-03 17:10:00 UTC	0	unnecessary	2016-10-06 06:25:15 UTC	
+3	8f592888-ad2a-413b-891c-0d6276c67aa4	1	565de4be-dc80-4849-a7e1-54bc79156cc8	2016	REG	N	2:19	139	80715d0d-0d2a-450f-a970-1b9a3b18c7e7	Indians	575c19b7-4052-41c2-9f0a-1c5813d02f99	Tigers	2016-05-04 22:10:00 UTC	8766	closed	2016-10-06 06:25:15 UTC	
+4	50d105b0-f598-4604-8c03-45b96a43fe0b	1	565de4be-dc80-4849-a7e1-54bc79156cc8	2016	REG	N	2:56	176	80715d0d-0d2a-450f-a970-1b9a3b18c7e7	Indians	43a39081-52b4-4f93-ad29-da7f329ea960	Mariners	2016-04-19 22:10:00 UTC	9393	closed	2016-10-06 06:25:15 UTC	
+5	f39bee60-5390-4b7b-a23d-0d3c8b1cf43b	1	565de4be-dc80-4849-a7e1-54bc79156cc8	2016	REG	N	2:48	168	80715d0d-0d2a-450f-a970-1b9a3b18c7e7	Indians	43a39081-52b4-4f93-ad29-da7f329ea960	Mariners	2016-04-20 22:10:00 UTC	9890	closed	2016-10-06 06:25:15 UTC	
+6	49aed28c-a6cb-40f6-a99f-cc621b727818	1	565de4be-dc80-4849-a7e1-54bc79156cc8	2016	REG	N	2:28	148	27a59d3b-ff7c-48ea-b016-4798f560f5e1	Athletics	d99f919b-1534-4516-8e8a-9cd106c6d8cd	Rangers	2016-05-17 02:05:00 UTC	10068	closed	2016-10-06 06:25:15 UTC	
+7	2836e1ca-0bb7-4087-a2cb-1f6d71d70ed6	1	565de4be-dc80-4849-a7e1-54bc79156cc8	2016	REG	N	2:41	161	27a59d3b-ff7c-48ea-b016-4798f560f5e1	Athletics	eb21dadd-8f10-4095-8bf3-dfb3b779f107	Astros	2016-09-20 02:05:00 UTC	10072	closed	2016-10-06 06:25:15 UTC	
+8	e1c5c253-9079-4504-a51d-216fc148ae9b	1	565de4be-dc80-4849-a7e1-54bc79156cc8	2016	REG	N	2:29	149	27a59d3b-ff7c-48ea-b016-4798f560f5e1	Athletics	80715d0d-0d2a-450f-a970-1b9a3b18c7e7	Indians	2016-08-23 02:05:00 UTC	10114	closed	2016-10-06 06:25:15 UTC	
+9	3e4ab8c1-cf8c-4706-9243-58f17fbfa478	1	565de4be-dc80-4849-a7e1-54bc79156cc8	2016	REG	N	3:08	188	27a59d3b-ff7c-48ea-b016-4798f560f5e1	Athletics	d99f919b-1534-4516-8e8a-9cd106c6d8cd	Rangers	2016-06-16 02:05:00 UTC	10115	closed	2016-10-06 06:25:15 UTC	
+10	b656b876-5b3c-4608-84fc-e22c37b0aa9a	1	565de4be-dc80-4849-a7e1-54bc79156cc8	2016	REG	N	2:32	152	bdc11650-6f74-49c4-875e-778aeb7632d9	Rays	80715d0d-0d2a-450f-a970-1b9a3b18c7e7	Indians	2016-04-13 23:10:00 UTC	10117	closed	2016-10-06 06:25:15 UTC	
+																	
+
+QUESTION 2:
+WHAT IS THE AVERAGE SALES OF IOWA LIQUOR ?
+
+SELECT  AVG (state_bottle_cost)
+FROM `bigquery-public-data.iowa_liquor_sales.sales`
+
+RESULTS:
+Row	f0_	
+1	9.845898761	
+
+QUESTION 3:
+JOIN THE CENSUS BUREAU INTERNATIONAL AND BIRTH DEATH GROWTH RATES DATA?
+
+select fertility1.country_name,fertility2.crude_birth_rate
+from `bigquery-public-data.census_bureau_international.age_specific_fertility_rates`
+as fertility1
+join `bigquery-public-data.census_bureau_international.birth_death_growth_rates` as fertility2
+ON (fertility1.country_name=fertility2.country_name)
+
+RESULTS:
+Row	country_name	crude_birth_rate	
+1	Aruba	18.47	
+2	Aruba	18.89	
+3	Aruba	19.25	
+4	Aruba	19.54	
+5	Aruba	19.7	
+6	Aruba	19.75	
+7	Aruba	19.74	
+8	Aruba	19.66	
+9	Aruba	19.54	
+10	Aruba	19.39	
+
+QUESTION 4:
+HOW MANY AUSTIN BIKESHARE TRIPS WERE COMPLETED BETWEEN DURATION OF 10 TO 30 MINUTES?
+
+SELECT * FROM `bigquery-public-data.austin_bikeshare.bikeshare_trips` 
+WHERE duration_minutes BETWEEN 10 AND 30;
+
+RESULTS:
+Row	trip_id	subscriber_type	bikeid	start_time	start_station_id	start_station_name	end_station_id	end_station_name	duration_minutes	
+1	9900285908	Annual Membership (Austin B-cycle)	400	2014-10-26 14:12:00 UTC	2823	Capital Metro HQ - East 5th at Broadway	2544	East 6th & Pedernales St.	10	
+2	9900285991	24-Hour Kiosk (Austin B-cycle)	101	2014-10-26 15:12:00 UTC	2712	Toomey Rd @ South Lamar	2712	Toomey Rd @ South Lamar	30	
+3	9900286140	24-Hour Kiosk (Austin B-cycle)	242	2014-10-26 18:12:00 UTC	2541	State Capitol @ 14th & Colorado	2541	State Capitol @ 14th & Colorado	19	
+4	9900286143	24-Hour Kiosk (Austin B-cycle)	924	2014-10-26 18:12:00 UTC	2541	State Capitol @ 14th & Colorado	2541	State Capitol @ 14th & Colorado	17	
+5	9900286540	24-Hour Kiosk (Austin B-cycle)	117	2014-10-27 15:12:00 UTC	2536	Waller & 6th St.	2536	Waller & 6th St.	12	
+6	9900287606	Annual Membership (Austin B-cycle)	513	2014-10-29 21:12:00 UTC	2536	Waller & 6th St.	2544	East 6th & Pedernales St.	10	
+7	9900288149	Founding Member (Austin B-cycle)	429	2014-10-31 11:12:00 UTC	2823	Capital Metro HQ - East 5th at Broadway	2823	Capital Metro HQ - East 5th at Broadway	16	
+8	9900290433	Local365	453	2015-10-02 21:12:42 UTC	1006	Zilker Park West	1008	Nueces @ 3rd	15	
+9	9900288210	Annual Membership (Austin B-cycle)	223	2014-10-31 13:12:00 UTC	2823	Capital Metro HQ - East 5th at Broadway	2823	Capital Metro HQ - East 5th at Broadway	23	
+10	9900288334	24-Hour Kiosk (Austin B-cycle)	410	2014-10-31 15:12:00 UTC	2536	Waller & 6th St.	2544	East 6th & Pedernales St.	11	
+11	9900288335	24-Hour Kiosk (Austin B-cycle)	329	2014-10-31 15:12:00 UTC	2536	Waller & 6th St.	2544	East 6th & Pedernales St.	12									
+
+
+QUESTIOIN 5:
+ORDER THE INTERNATIONAL PUBLIC DEBT WORLD BANK DATA IN COUNTRY CODE WISE? 
+
+SELECT * FROM `bigquery-public-data.world_bank_intl_debt.international_debt`
+ORDER BY country_code
+
+RESULTS:
+Row	country_name	country_code	indicator_name	indicator_code	value	year	
+1	Afghanistan	AFG	PPG, commercial banks (INT, current US$)	DT.INT.PCBK.CD	0	null	
+2	Afghanistan	AFG	PPG, other private creditors (DIS, current US$)	DT.DIS.PROP.CD	0	null	
+3	Afghanistan	AFG	PPG, bonds (AMT, current US$)	DT.AMT.PBND.CD	0	null	
+4	Afghanistan	AFG	PPG, bonds (AMT, current US$)	DT.AMT.PBND.CD	0	null	
+5	Afghanistan	AFG	PPG, bonds (AMT, current US$)	DT.AMT.PBND.CD	0	null	
+6	Afghanistan	AFG	PPG, bonds (AMT, current US$)	DT.AMT.PBND.CD	0	null	
+7	Afghanistan	AFG	PPG, multilateral (AMT, current US$)	DT.AMT.MLAT.CD	4.62E+07	null	
+8	Afghanistan	AFG	PPG, official creditors (AMT, current US$)	DT.AMT.OFFT.CD	1.10E+08	null	
+9	Afghanistan	AFG	PPG, multilateral (DIS, current US$)	DT.DIS.MLAT.CD	1480636.7	null	
+10	Afghanistan	AFG	Disbursements on external debt, long-term (DIS, current US$)	DT.DIS.DLXF.CD	1480636.7	null							
+
+
+QUESTION 6:
+ARRANGE THE DURATION OF BASEBALL MATCHES IN DESENDING ORDER?
+
+SELECT * FROM `bigquery-public-data.baseball.schedules` 
+ORDER BY duration DESC
+
+RESULTS:
+Row	gameId	gameNumber	seasonId	year	type	dayNight	duration	duration_minutes	homeTeamId	homeTeamName	awayTeamId	awayTeamName	startTime	attendance	status	created	
+1	e55cb5b4-58d6-4b0e-a253-154da467de1d	1	565de4be-dc80-4849-a7e1-54bc79156cc8	2016	REG	D	6:13	373	1d678440-b4b1-4954-9b39-70afb3ebbcfa	Blue Jays	80715d0d-0d2a-450f-a970-1b9a3b18c7e7	Indians	2016-07-01 17:07:00 UTC	45825	closed	2016-10-06 06:25:15 UTC	
+2	9f72d4eb-b3cc-4a46-96ac-e139ade38162	1	565de4be-dc80-4849-a7e1-54bc79156cc8	2016	REG	D	5:56	356	d89bed32-3aee-4407-99e3-4103641b999a	Nationals	aa34e0ed-f342-4ec6-b774-c79b47b60e2d	Twins	2016-04-24 17:35:00 UTC	35397	closed	2016-10-06 06:25:15 UTC	
+3	450f94fd-6e2a-4b49-8247-c36214987ca2	1	565de4be-dc80-4849-a7e1-54bc79156cc8	2016	REG	D	5:48	348	d89bed32-3aee-4407-99e3-4103641b999a	Nationals	481dfe7e-5dab-46ab-a49f-9dcc2b6e2cfd	Pirates	2016-07-17 17:35:00 UTC	32775	closed	2016-10-06 06:25:15 UTC	
+4	e11b5291-c229-43a9-99dc-f93d86f9b01f	1	565de4be-dc80-4849-a7e1-54bc79156cc8	2016	REG	D	5:47	347	d52d5339-cbdd-43f3-9dfa-a42fd588b9a3	Padres	ef64da7f-cfaf-4300-87b0-9313386b977c	Dodgers	2016-05-22 20:40:00 UTC	43100	closed	2016-10-06 06:25:15 UTC	
+5	ea644844-7df8-4d79-a3b6-06c6e99f944d	1	565de4be-dc80-4849-a7e1-54bc79156cc8	2016	REG	N	5:34	334	03556285-bdbb-4576-a06d-42f71f46ddc5	Marlins	a7723160-10b7-4277-a309-d8dd95a8ae65	Giants	2016-08-08 23:10:00 UTC	22806	closed	2016-10-06 06:25:15 UTC	
+6	aa96f40f-96a1-4549-9f7d-f4ccabddddc0	1	565de4be-dc80-4849-a7e1-54bc79156cc8	2016	REG	D	5:26	326	ef64da7f-cfaf-4300-87b0-9313386b977c	Dodgers	75729d34-bca7-4a0f-b3df-6f26c6ad3719	Orioles	2016-07-06 19:10:00 UTC	40899	closed	2016-10-06 06:25:15 UTC	
+7	00dd6dc5-0c5a-4216-853a-1523753c1c27	1	565de4be-dc80-4849-a7e1-54bc79156cc8	2016	REG	D	5:25	325	25507be1-6a68-4267-bd82-e097d94b359b	Diamondbacks	481dfe7e-5dab-46ab-a49f-9dcc2b6e2cfd	Pirates	2016-04-24 20:10:00 UTC	27573	closed	2016-10-06 06:25:15 UTC	
+8	f43aecde-5de5-4248-9b3f-0592377fdd0f	1	565de4be-dc80-4849-a7e1-54bc79156cc8	2016	REG	N	5:25	325	d52d5339-cbdd-43f3-9dfa-a42fd588b9a3	Padres	25507be1-6a68-4267-bd82-e097d94b359b	Diamondbacks	2016-04-17 00:40:00 UTC	34051	closed	2016-10-06 06:25:15 UTC	
+9	0e7abbd1-fd78-4899-8cfa-052b89cd51e7	1	565de4be-dc80-4849-a7e1-54bc79156cc8	2016	REG	N	5:23	323	25507be1-6a68-4267-bd82-e097d94b359b	Diamondbacks	a7723160-10b7-4277-a309-d8dd95a8ae65	Giants	2016-09-10 01:40:00 UTC	26492	closed	2016-10-06 06:25:15 UTC	
+10	b35dc3e2-c302-47e8-a5c7-ccdbfd7f32f7	1	565de4be-dc80-4849-a7e1-54bc79156cc8	2016	REG	N	5:18	318	12079497-e414-450a-8bf2-29f91de646bf	Braves	c874a065-c115-4e7d-b0f0-235584fb0e6f	Reds	2016-06-15 23:10:00 UTC	14953	closed	2016-10-06 06:25:15 UTC	
+
+
+QUESTION 7:
+JOIN THE AUSTIN BIKESHARE STATIONS AND BIKESHARE TRIP DATA?
+
+SELECT asdf.trip_id,asd.station_id
+from `bigquery-public-data.austin_bikeshare.bikeshare_stations` as asd
+join `bigquery-public-data.austin_bikeshare.bikeshare_trips` as asdf
+on (asd.station_id = asdf.trip_id)
+
+RESULTS:
+This query returned no results. 
+
+QUESTION 8:
+WHAT IS THE MAXIMUM STATE BOTTLE COST OF IOWA LIQUOR?
+
+SELECT MAX (state_bottle_cost)
+FROM `bigquery-public-data.iowa_liquor_sales.sales` 
+
+RESULTS:
+Row	f0_	
+1	7680	
+
+QUESTION 9:
+WHAT IS THE MINIMUM STATE BOTTLE COST OF IOWA LIQUOR?
+
+SELECT MIN (state_bottle_cost)
+FROM `bigquery-public-data.iowa_liquor_sales.sales`
+
+RESULTS:
+Row	f0_	
+1	0	
+
+QUESTION 10:
+ORDER THE SALES OF IOWA LIQUOR BY STORE NUMBERS?
+
+SELECT * FROM `bigquery-public-data.iowa_liquor_sales.sales` 
+ORDER BY store_number
+
+RESULTS:
+Row	invoice_and_item_number	date	store_number	store_name	address	city	zip_code	store_location	county_number	county	category	category_name	vendor_number	vendor_name	item_number	item_description	pack	bottle_volume_ml	state_bottle_cost	state_bottle_retail	bottles_sold	sale_dollars	volume_sold_liters	volume_sold_gallons
+1	INV-23232800020	11/14/2019	2106	Hillstreet News and Tobacco	2217 College	Cedar Falls	50613	POINT (-92.455796 42.517182)	7	BLACK HAWK	1042100	Imported Dry Gins	35	BACARDI USA INC	28233	Bombay Sapphire Gin	12	1000	16.5	24.75	12	297	12	3.17
+2	S15464800075	10/31/2013	2106	Hillstreet News and Tobacco	2217 COLLEGE	CEDAR FALLS	50613	POINT (-92.455796 42.517182)	7	Black Hawk	1022100	TEQUILA	240	WILLIAM GRANT AND SONS, INC.	88116	Milagro Silver Tequila	6	750	15.68	23.53	18	423.54	13.5	3.57
+3	S18238500103	4/3/2014	2106	Hillstreet News and Tobacco	2217 COLLEGE	CEDAR FALLS	50613	POINT (-92.455796 42.517182)	7	Black Hawk	1022100	TEQUILA	395	Proximo	89206	1800 Reposado Tequila	12	750	14.46	22.19	24	532.56	18	4.76
+4	S29829200072	12/23/2015	2106	Hillstreet News and Tobacco	2217 COLLEGE	CEDAR FALLS	50613	POINT (-92.455796 42.517182)	7	Black Hawk	1081010	AMERICAN AMARETTO	55	Sazerac North America	73986	Di Amore Amaretto	12	750	6	9	12	108	9	2.38
+5	INV-17262800048	1/31/2019	2106	Hillstreet News and Tobacco	2217 College	Cedar Falls	50613	POINT (-92.455796 42.517182)	7	BLACK HAWK	1092100	Imported Distilled Spirit Specialty	434	LUXCO INC	75087	Juarez Gold Dss	12	1000	5	7.5	36	270	36	9.51
+6	S04684200072	3/22/2012	2106	Hillstreet News and Tobacco	2217 COLLEGE	CEDAR FALLS	50613	POINT (-92.455796 42.517182)	7	Black Hawk	1022100	TEQUILA	421	Sazerac Co., Inc.	88766	Tortilla White Tequila	12	750	6.34	9.52	12	114.24	9	2.38
+7	S27970700078	9/17/2015	2106	Hillstreet News and Tobacco	2217 COLLEGE	CEDAR FALLS	50613	POINT (-92.455796 42.517182)	7	Black Hawk	1022100	TEQUILA	65	Jim Beam Brands	89787	Sauza Gold	12	1000	11.55	17.33	12	207.96	12	3.17
+8	S10349100055	1/31/2013	2106	Hillstreet News and Tobacco	2217 COLLEGE	CEDAR FALLS	50613	POINT (-92.455796 42.517182)	7	Black Hawk	1022100	TEQUILA	421	Sazerac Co., Inc.	88767	Tortilla White Tequila	12	1000	7.14	10.72	12	128.64	12	3.17
+9	INV-19564000064	5/23/2019	2106	Hillstreet News and Tobacco	2217 College	Cedar Falls	50613	POINT (-92.455796 42.517182)	7	BLACK HAWK	1081500	Triple Sec	421	SAZERAC COMPANY INC	86637	Tortilla Triple Sec	12	1000	3.01	4.52	12	54.24	12	3.17
+10	INV-13741200055	8/9/2018	2106	Hillstreet News and Tobacco	2217 College	Cedar Falls	50613	POINT (-92.455796 42.517182)	7	BLACK HAWK	1081100	Coffee Liqueurs	370	PERNOD RICARD USA	67527	Kahlua Coffee Liqueur	12	1000	14.99	22.49	12	269.88	12	3.17
+11	S06067100067	6/14/2012	2106	Hillstreet News and Tobacco	2217 COLLEGE	CEDAR FALLS	50613	POINT (-92.455796 42.517182)	7	Black Hawk	1081305	APPLE SCHNAPPS	65	Jim Beam Brands	82607	Dekuyper Sour Apple	12	1000	7.35	11.02	12	132.24	12	3.17
